@@ -1,0 +1,38 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+sw-tab-bar-item {
+
+  @include layout-row();
+  align-items: center;
+  justify-content: center;
+
+  background-color: $sw-tab-bar-item-background;
+  border-right: $sw-tab-bar-item-border;
+
+  .sw-tab-bar__link {
+    color: $sw-tab-bar-item-font-color;
+    font-size: $sw-tab-bar-item-font-size;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    letter-spacing: $sw-1px;
+    line-height: $sw-30px;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 $sw-16px;
+    display: block;
+    height: $sw-30px;
+    border: none;
+  }
+
+  .sw-tab-bar__link--active {
+     color: $sw-tab-bar-item-font-color-active;
+     background-color: $sw-tab-bar-item-background-active;
+  }
+
+  .sw-tab-bar__link--disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}

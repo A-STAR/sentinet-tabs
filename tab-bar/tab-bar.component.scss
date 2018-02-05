@@ -1,0 +1,41 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+$alternate-height: $sw-40px;
+$alternate-color: $blue;
+
+sw-tab-bar {
+  height: $sw-tab-bar-height;
+  background-color: $sw-tab-bar-background;
+  @include layout-row();
+  flex: 0 0 $sw-30px;
+}
+
+sw-tab-bar.sw-tab-bar--alternate {
+  height: $alternate-height;
+  background-color: $white;
+  flex: 0 0 $alternate-height;
+  justify-content: flex-end;
+  margin: -$sw-10px 0 $sw-10px 0;
+
+  > sw-tab-bar-item, div {
+    border-right: none;
+    background-color: $white;
+    margin: $sw-10px;
+    > .sw-tab-bar__link {
+      color: $alternate-color;
+      padding: 0;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: $sw-16px;
+      height: $alternate-height;
+      line-height: $alternate-height;
+    }
+    
+    > .sw-tab-bar__link--active {
+      border-bottom: $alternate-color $sw-3px solid;    
+    }
+  }
+
+  
+}

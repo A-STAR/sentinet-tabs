@@ -1,0 +1,15 @@
+<a *ngIf="enableNavigation === true; else withoutRouting;"
+   [routerLink]="route" 
+   [routerLinkActiveOptions]="{ exact: (route && route[0] === './') ? true : exact }"
+   routerLinkActive="sw-tab-bar__link--active"
+   class="sw-tab-bar__link">
+   <ng-container *ngTemplateOutlet="navBarContentTpl"></ng-container>
+</a>
+<ng-template #withoutRouting>
+    <a [ngClass]="{'sw-tab-bar__link--active':isActive, 'sw-tab-bar__link--disabled':isDisabled}" class="sw-tab-bar__link">
+        <ng-container *ngTemplateOutlet="navBarContentTpl"></ng-container>
+    </a>
+</ng-template>
+<ng-template #navBarContentTpl>
+    <ng-content></ng-content>
+</ng-template>
